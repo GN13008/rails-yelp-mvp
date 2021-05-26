@@ -1,0 +1,21 @@
+<div class="container m-4">
+  <h1>See some details about : <%= @restaurant.name %></h1>
+  <hr>
+  <p>Address : <%= @restaurant.address %></p>
+  <p>Phone number : <%= @restaurant.phone_number %></p>
+  <p>Category : <%= @restaurant.category %></p>
+  <p>Reviews :</p>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item">
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <%= review.content %>
+      </li>
+    <% end %>
+  </ul>
+  <hr>
+  <%= link_to "Go home", restaurants_path, class: "btn btn-primary"%>
+  <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+</div>

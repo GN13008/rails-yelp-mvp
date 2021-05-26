@@ -1,0 +1,14 @@
+<div class="container m-4">
+  <h1>This is all my Restaurants <i class="fas fa-utensils"></i></h1>
+  <hr>
+  <ul class="list-group list-group-flush">
+    <% @restaurants.each do |restaurant| %>
+      <li class="list-group-item">
+        <%= link_to ("<i class=\"fas fa-search\"></i>").html_safe, restaurant_path(restaurant) %>
+        <%= restaurant.name %>
+      </li>
+    <% end %>
+  </ul>
+  <hr>
+  <%= link_to "New Restaurant ?", new_restaurant_path, class: "btn btn-primary"%>  
+</div>
